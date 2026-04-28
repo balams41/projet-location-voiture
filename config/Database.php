@@ -11,11 +11,13 @@ class Database
     {
         try {
             // Connexion à la base
-            $pdo = new PDO(
-                "mysql:host=database;projet-location-voiture;charset=utf8",
-                "root",
-                "admin"
-            );
+          $pdo = new PDO(
+        "mysql:host=location-database;dbname=location;charset=utf8",
+        "user",
+        "user"
+);
+
+         
             //echo "Connexion réussie ✅";
 
 

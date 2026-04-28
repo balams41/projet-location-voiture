@@ -1,0 +1,736 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #eef4ff;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #1e3a8a;
+}
+
+/* Conteneur du formulaire */
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Groupes */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+/* Inputs */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* Focus */
+input:focus, textarea:focus {
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 5px rgba(59,130,246,0.3);
+}
+
+/* Textarea */
+textarea {
+    resize: vertical;
+}
+
+/* Bouton */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover bouton */
+button:hover {
+    background: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+}
+ /* ===========================
+       RESET & VARIABLES
+    =========================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+ 
+    :root {
+      --bleu: #1a56db;
+      --bleu-fonce: #1240a8;
+      --blanc: #ffffff;
+      --gris-clair: #f0f4ff;
+      --texte: #1a1a2e;
+      --texte-gris: #555;
+    }
+ 
+    body {
+      font-family: Georgia, serif;
+      color: var(--texte);
+      background: var(--blanc);
+    }
+ 
+    /* ===========================
+       BARRE DE NAVIGATION
+    =========================== */
+    nav {
+      background: var(--blanc);
+      border-bottom: 2px solid var(--bleu);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      height: 70px;
+    }
+ 
+    /* Logo bleu à gauche */
+    .logo {
+      background: var(--bleu);
+      color: var(--blanc);
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.4;
+      margin-right: 30px;
+    }
+ 
+    .logo .slogan {
+      font-size: 10px;
+      font-weight: normal;
+      opacity: 0.85;
+    }
+ 
+    /* Liens de navigation */
+    .nav-liens {
+      display: flex;
+      gap: 6px;
+      list-style: none;
+      border: 1px solid var(--bleu);
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+ 
+    .nav-liens a {
+      text-decoration: none;
+      color: var(--texte);
+      font-size: 13px;
+      font-weight: bold;
+      padding: 5px 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+ 
+    .nav-liens a:hover,
+    .nav-liens a.actif {
+      color: var(--bleu);
+      border-bottom: 2px solid var(--bleu);
+    }
+ 
+    /* Boutons connexion / inscription à droite */
+    .nav-droite {
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+ 
+    .nav-droite a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+      color: var(--texte);
+    }
+ 
+    .btn-inscription {
+      background: var(--bleu);
+      color: var(--blanc) !important;
+      padding: 8px 18px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+ 
+    .btn-inscription:hover {
+      background: var(--bleu-fonce);
+    }
+ 
+    /* ===========================
+       SECTION HERO (accueil)
+    =========================== */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      padding: 60px 80px;
+      background: var(--blanc);
+    }
+ 
+    /* Texte à gauche */
+    .hero-texte h1 {
+      font-size: 48px;
+      font-weight: bold;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+ 
+    .hero-texte h1 span {
+      color: var(--bleu);
+      text-decoration: underline;
+    }
+ 
+    .hero-texte p {
+      font-size: 16px;
+      color: var(--texte-gris);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+ 
+    /* Image à droite */
+    .hero-image {
+      flex: 1;
+      border: 2px solid var(--bleu);
+      border-radius: 4px;
+      overflow: hidden;
+      min-height: 280px;
+      background: var(--gris-clair);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+ 
+    /* Voiture dessinée en CSS pur */
+    .voiture {
+      position: relative;
+      width: 320px;
+      height: 140px;
+      margin: 40px auto;
+    }
+ 
+    /* Corps principal */
+    .voiture .carrosserie {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      width: 320px;
+      height: 60px;
+      background: var(--bleu);
+      border-radius: 8px 8px 4px 4px;
+    }
+ 
+    /* Toit */
+    .voiture .toit {
+      position: absolute;
+      bottom: 80px;
+      left: 60px;
+      width: 180px;
+      height: 50px;
+      background: var(--bleu-fonce);
+      border-radius: 20px 20px 0 0;
+    }
+ 
+    /* Pare-brise */
+    .voiture .vitre {
+      position: absolute;
+      bottom: 82px;
+      left: 80px;
+      width: 140px;
+      height: 42px;
+      background: #93c5fd;
+      border-radius: 14px 14px 0 0;
+      opacity: 0.8;
+    }
+ 
+    /* Roue gauche */
+    .voiture .roue-gauche {
+      position: absolute;
+      bottom: 0;
+      left: 40px;
+      width: 60px;
+      height: 60px;
+      background: #1a1a2e;
+      border-radius: 50%;
+      border: 6px solid #374151;
+    }
+ 
+    /* Roue droite */
+    .voiture .roue-droite {
+      position: absolute;
+      bottom: 0;
+      right: 40px;
+      width: 60px;
+      height: 60px;
+      background: #1a1a2e;
+      border-radius: 50%;
+      border: 6px solid #374151;
+    }
+ 
+    /* Phare avant */
+    .voiture .phare {
+      position: absolute;
+      bottom: 50px;
+      right: 8px;
+      width: 20px;
+      height: 12px;
+      background: #fef08a;
+      border-radius: 3px;
+    }
+ 
+    /* ===========================
+       SECTION DESCRIPTION
+    =========================== */
+    .description {
+      background: var(--gris-clair);
+      border-top: 1px solid #d1d5db;
+      border-bottom: 1px solid #d1d5db;
+      padding: 30px 80px;
+    }
+ 
+    .description p {
+      font-size: 15px;
+      line-height: 2;
+      color: var(--texte);
+    }
+ 
+    /* ===========================
+       SECTION AVANTAGES (cards)
+    =========================== */
+    .avantages {
+      padding: 50px 80px;
+      background: var(--blanc);
+    }
+ 
+    .avantages h2 {
+      font-size: 26px;
+      color: var(--bleu);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+ 
+    .cards {
+      display: flex;
+      gap: 20px;
+    }
+ 
+    .card {
+      flex: 1;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      padding: 24px;
+      text-align: center;
+    }
+ 
+    .card:hover {
+      background: #e8f0fe;
+      border-color: var(--bleu);
+    }
+ 
+    .card .icone {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+ 
+    .card h3 {
+      font-size: 16px;
+      color: var(--bleu);
+      margin-bottom: 8px;
+    }
+ 
+    .card p {
+      font-size: 13px;
+      color: var(--texte-gris);
+      line-height: 1.6;
+    }
+ 
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: var(--bleu-fonce);
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 18px;
+      font-size: 13px;
+    }
+ 
+    footer strong {
+      color: var(--blanc);
+    }
+    root {
+    --bleu: #1a56db;
+    --bleu-fonce: #1240a8;
+    --blanc: #ffffff;
+  }
+ 
+  /* Barre de navigation */
+  .navbar {
+    background-color: var(--blanc) !important;
+    border-bottom: 2px solid var(--bleu);
+    padding: 0 20px;
+    height: 70px;
+  }
+ 
+  /* Logo / nom du site */
+  .navbar-brand {
+    background: var(--bleu);
+    color: var(--blanc) !important;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+ 
+  .navbar-brand:hover {
+    background: var(--bleu-fonce);
+  }
+ 
+  /* Liens de navigation */
+  .nav-link {
+    color: #1a1a2e !important;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 14px !important;
+  }
+ 
+  .nav-link:hover {
+    color: var(--bleu) !important;
+    border-bottom: 2px solid var(--bleu);
+  }
+ 
+  /* Bouton spécial pour "S'inscrire" */
+  .nav-link.btn-inscription {
+    background: var(--bleu);
+    color: var(--blanc) !important;
+    border-radius: 4px;
+    margin-left: 8px;
+  }
+ 
+  .nav-link.btn-inscription:hover {
+    background: var(--bleu-fonce);
+    border-bottom: none;
+  }
+ 
+  /* Bouton hamburger (mobile) */
+  .navbar-toggler {
+    border-color: var(--bleu);
+  }
+
+  
+  .btn-inscription {
+    background: #3b82f6; /* bleu */
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 50px; /* forme arrondie */
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+/* Hover */
+.btn-inscription:hover {
+    background: #2563eb;
+    color: white;
+}
+
+@media (min-width: 768px) {
+
+  .hero {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+  }
+
+  .hero-texte h1 {
+    font-size: 36px;
+  }
+
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 1 1 45%;
+  }
+}
+
+/* ===========================
+   RESET & VARIABLES
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bleu: #1a56db;
+  --bleu-fonce: #1240a8;
+  --blanc: #ffffff;
+  --gris-clair: #f0f4ff;
+  --texte: #1a1a2e;
+  --texte-gris: #555;
+}
+
+/* ===========================
+   GLOBAL
+=========================== */
+body {
+  font-family: Arial, sans-serif;
+  background: #eef4ff;
+  color: var(--texte);
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: var(--bleu);
+  font-size: 24px;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+nav {
+  background: var(--blanc);
+  border-bottom: 2px solid var(--bleu);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+
+.logo {
+  background: var(--bleu);
+  color: white;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.nav-liens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+}
+
+.nav-liens a {
+  text-decoration: none;
+  color: var(--texte);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.nav-droite {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-inscription {
+  background: var(--bleu);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+/* ===========================
+   HERO
+=========================== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.hero-texte h1 {
+  font-size: 26px;
+}
+
+.hero-texte p {
+  font-size: 14px;
+  color: var(--texte-gris);
+}
+
+.hero-image {
+  border: 2px solid var(--bleu);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+/* ===========================
+   FORMULAIRE
+=========================== */
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 15px auto;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  background: var(--bleu);
+  color: white;
+  border: none;
+}
+
+/* ===========================
+   DESCRIPTION
+=========================== */
+.description {
+  padding: 20px 10px;
+}
+
+.description p {
+  line-height: 1.7;
+}
+
+/* ===========================
+   CARDS
+=========================== */
+.avantages {
+  padding: 20px 10px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card {
+  padding: 15px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.card h3 {
+  color: var(--bleu);
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: var(--bleu-fonce);
+  color: white;
+  font-size: 13px;
+}
+
+/* ===========================
+   TABLETTE
+=========================== */
+@media (min-width: 768px) {
+
+  body {
+    padding: 20px;
+  }
+
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hero {
+    flex-direction: row;
+    text-align: left;
+    padding: 30px;
+  }
+
+  .hero-texte h1 {
+    font-size: 34px;
+  }
+
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 1 1 45%;
+  }
+}
+
+/* ===========================
+   ORDINATEUR
+=========================== */
+@media (min-width: 1024px) {
+
+  body {
+    padding: 30px;
+  }
+
+  .hero {
+    padding: 60px 80px;
+  }
+
+  .hero-texte h1 {
+    font-size: 48px;
+  }
+
+  .cards {
+    flex-wrap: nowrap;
+  }
+
+  .card {
+    flex: 1;
+  }
+
+  .description,
+  .avantages {
+    padding: 50px 80px;
+  }
+}
