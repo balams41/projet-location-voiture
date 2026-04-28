@@ -734,3 +734,315 @@ footer {
     padding: 50px 80px;
   }
 }
+
+.page-vehicules {
+  background: var(--gris-clair);
+  min-height: 100vh;
+  padding: 40px 0;
+}
+ 
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+ 
+.page-header h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--texte);
+}
+ 
+.btn-ajouter {
+  background: var(--bleu);
+  color: var(--blanc);
+  padding: 10px 22px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+ 
+.btn-ajouter:hover {
+  background: var(--bleu-fonce);
+  color: var(--blanc);
+}
+ 
+/* Grille */
+.grille {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+ 
+/* Carte véhicule */
+.carte {
+  background: var(--blanc);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(26, 86, 219, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+ 
+.carte:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(26, 86, 219, 0.15);
+}
+ 
+.carte-image {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(135deg, #e8f0fe, #c7d7fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+}
+ 
+.carte-body {
+  padding: 20px;
+}
+ 
+.carte-titre {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--texte);
+  margin-bottom: 10px;
+}
+ 
+.carte-infos {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 8px;
+  line-height: 1.8;
+}
+ 
+.carte-prix {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--bleu);
+  margin-bottom: 16px;
+}
+ 
+.carte-footer {
+  display: flex;
+  gap: 8px;
+  padding: 16px 20px;
+  border-top: 1px solid #e5e7eb;
+  background: var(--gris-clair);
+}
+ 
+.vide {
+  text-align: center;
+  color: #555;
+  font-size: 16px;
+  padding: 60px 0;
+}
+ 
+/* ===========================
+   PAGE DÉTAIL VÉHICULE
+=========================== */
+.page-vehicule {
+  background: var(--gris-clair);
+  min-height: 100vh;
+  padding: 40px 0;
+}
+ 
+.carte-vehicule {
+  background: var(--blanc);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(26, 86, 219, 0.1);
+  overflow: hidden;
+  max-width: 900px;
+  margin: auto;
+}
+ 
+.vehicule-image-placeholder {
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(135deg, #e8f0fe, #c7d7fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+}
+ 
+.vehicule-body {
+  padding: 32px;
+}
+ 
+.vehicule-titre {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--texte);
+  margin-bottom: 4px;
+}
+ 
+.vehicule-prix {
+  font-size: 22px;
+  color: var(--bleu);
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+ 
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+ 
+.badge-info {
+  background: var(--gris-clair);
+  border: 1px solid #d1d5db;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--texte);
+}
+ 
+.table-infos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+ 
+.table-infos tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+ 
+.table-infos th {
+  padding: 12px 16px;
+  background: var(--gris-clair);
+  color: var(--bleu);
+  font-size: 14px;
+  width: 40%;
+  text-align: left;
+}
+ 
+.table-infos td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--texte);
+}
+ 
+.description-box {
+  background: var(--gris-clair);
+  border-left: 4px solid var(--bleu);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+}
+ 
+/* ===========================
+   BOUTONS COMMUNS
+=========================== */
+.btn-retour {
+  display: inline-block;
+  margin-bottom: 24px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--bleu);
+  border: 2px solid var(--bleu);
+  padding: 8px 18px;
+  border-radius: 20px;
+  transition: background 0.2s, color 0.2s;
+}
+ 
+.btn-retour:hover {
+  background: var(--bleu);
+  color: var(--blanc);
+}
+ 
+.btn-voir {
+  flex: 1;
+  text-align: center;
+  background: var(--bleu);
+  color: var(--blanc);
+  padding: 8px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+ 
+.btn-voir:hover {
+  background: var(--bleu-fonce);
+  color: var(--blanc);
+}
+ 
+.btn-reserver {
+  display: block;
+  text-align: center;
+  background: var(--bleu);
+  color: var(--blanc);
+  padding: 14px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+ 
+.btn-reserver:hover {
+  background: var(--bleu-fonce);
+  color: var(--blanc);
+}
+ 
+.btns-admin {
+  display: flex;
+  gap: 12px;
+}
+ 
+.btn-modifier {
+  flex: 1;
+  text-align: center;
+  background: #f59e0b;
+  color: var(--blanc);
+  padding: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+ 
+.btn-modifier:hover {
+  background: #d97706;
+  color: var(--blanc);
+}
+ 
+.btn-supprimer {
+  flex: 1;
+  text-align: center;
+  background: #ef4444;
+  color: var(--blanc);
+  padding: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+ 
+.btn-supprimer:hover {
+  background: #dc2626;
+  color: var(--blanc);
+}
+ 
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+  .grille {
+    grid-template-columns: 1fr;
+  }
+}

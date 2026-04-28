@@ -12,10 +12,11 @@ $router->addRoute('/connexion', 'SessionController', 'login');
 $router->addRoute('/vehicules', 'VehiculeController', 'index');
 $router->addRoute('/deconnexion', 'SessionController', 'logout');
 
-$router->addRoute('/vehicules',          'VehiculeController', 'index');
-$router->addRoute('/vehicule/voir',     'VehiculeController', 'vehicle');
-$router->addRoute('/vehicule/ajouter',  'VehiculeController', 'addVehicle');
-$router->addRoute('/vehicule/modifier', 'VehiculeController', ' updateVehicle');
-$router->addRoute('/vehicule/delete', 'VehiculeController', 'deleteVehicule');
+
+$router->addRoute('/vehicules',           'VehiculeController', 'index');
+$router->addRoute('/vehicules/voir',      'VehiculeController', 'vehicule');
+$router->addRoute('/vehicules/ajouter',   'VehiculeController', 'addVehicule');
+$router->addRoute('/vehicules/modifier',  'VehiculeController', 'editVehicule');
+$router->addRoute('/vehicules/supprimer', 'VehiculeController', 'deleteVehicule');
 
 $router->handleRequest();

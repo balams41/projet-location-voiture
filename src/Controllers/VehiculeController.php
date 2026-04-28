@@ -2,29 +2,29 @@
 
 namespace App\Controllers;
 
-use App\Models\Vehicle;       // ✅ vrai nom du modèle
+use App\Models\Vehicle;
 use App\Utils\AbstractController;
 
 class VehiculeController extends AbstractController
 {
-    // ───── LISTE DE TOUS LES VÉHICULES ──────────────────────────────────────
+    // ───── LISTE ──────────────────────────────────────────────────────────────
 
     public function index()
     {
         $vehicule  = new Vehicle();
-        $vehicules = $vehicule->getAllVehicles();   // ✅ vrai nom de méthode
+        $vehicules = $vehicule->getAllVehicles();
 
         require_once(__DIR__ . '/../Views/vehicule.view.php');
     }
 
-    // ───── VOIR UN VÉHICULE PAR SON ID ──────────────────────────────────────
+    // ───── VOIR ───────────────────────────────────────────────────────────────
 
     public function vehicule()
     {
         if (isset($_GET['id'])) {
             $id         = htmlspecialchars($_GET['id']);
             $vehicule   = new Vehicle($id);
-            $myVehicule = $vehicule->getVehicleById();   // ✅
+            $myVehicule = $vehicule->getVehicleById();
 
             if ($myVehicule) {
                 require_once(__DIR__ . '/../Views/singlevehicule.view.php');
@@ -36,12 +36,13 @@ class VehiculeController extends AbstractController
         }
     }
 
-    // ───── AJOUTER UN VÉHICULE ───────────────────────────────────────────────
+    // ───── AJOUTER ────────────────────────────────────────────────────────────
 
-    public function addVehicle()
+    public function addVehicule()
     {
         if (isset($_SESSION['user'])) {
-            if (isset($_POST['add_vehicle'])) {
+            // ✅ CORRIGÉ : addVehicle avec majuscule V comme dans la vue
+            if (isset($_POST['addVehicle'])) {
                 $brand              = htmlspecialchars($_POST['brand']);
                 $model              = htmlspecialchars($_POST['model']);
                 $color              = htmlspecialchars($_POST['color']);
@@ -65,7 +66,7 @@ class VehiculeController extends AbstractController
                 if (empty($this->arrayError)) {
                     $vehicle = new Vehicle(null, $brand, $model, $color, $gearbox, $mileage, $description, $registration_plate, $fuel_type, $price);
 
-                    if ($vehicule->addVehicle()) {      // ✅
+                    if ($vehicle->addVehicle()) {
                         $this->redirectToRoute('/vehicules', 302);
                     } else {
                         $this->arrayError['general'] = "Une erreur est survenue lors de l'ajout.";
@@ -79,7 +80,7 @@ class VehiculeController extends AbstractController
         }
     }
 
-    // ───── MODIFIER UN VÉHICULE ──────────────────────────────────────────────
+    // ───── MODIFIER ───────────────────────────────────────────────────────────
 
     public function editVehicule()
     {
@@ -87,10 +88,11 @@ class VehiculeController extends AbstractController
             if (isset($_GET['id'])) {
                 $id         = htmlspecialchars($_GET['id']);
                 $vehicule   = new Vehicle($id);
-                $myVehicule = $vehicule->getVehicleById();   // ✅
+                $myVehicule = $vehicule->getVehicleById();
 
                 if ($myVehicule) {
-                    if (isset($_POST['edit_vehicule'])) {
+                    // ✅ CORRIGÉ : editVehicule comme dans la vue
+                    if (isset($_POST['editVehicule'])) {
                         $brand              = htmlspecialchars($_POST['brand']);
                         $model              = htmlspecialchars($_POST['model']);
                         $color              = htmlspecialchars($_POST['color']);
@@ -112,9 +114,9 @@ class VehiculeController extends AbstractController
                         if ($price <= 0)                $this->arrayError['price']              = "Le prix doit être supérieur à 0.";
 
                         if (empty($this->arrayError)) {
-                            $updatedVehicule = new Vehicle($id, $brand, $model, $color, $gearbox, $mileage, $description, $registration_plate, $fuel_type, $price);
+                            $updatedVehicule = new Vehicle((int)$id, $brand, $model, $color, $gearbox, $mileage, $description, $registration_plate, $fuel_type, $price);
 
-                            if ($updatedVehicule->updateVehicle()) {    // ✅
+                            if ($updatedVehicule->updateVehicle()) {
                                 $this->redirectToRoute('/vehicules/voir?id=' . $id, 302);
                             } else {
                                 $this->arrayError['general'] = "Une erreur est survenue lors de la modification.";
@@ -122,7 +124,7 @@ class VehiculeController extends AbstractController
                         }
                     }
 
-                    require_once(__DIR__ . '/../Views/editvehicule.view.php');
+                    require_once(__DIR__ . '/../Views/Editvehicule.view.php');
                 } else {
                     $this->redirectToRoute('/vehicules', 302);
                 }
@@ -134,18 +136,18 @@ class VehiculeController extends AbstractController
         }
     }
 
-    // ───── SUPPRIMER UN VÉHICULE ─────────────────────────────────────────────
+    // ───── SUPPRIMER ──────────────────────────────────────────────────────────
 
     public function deleteVehicule()
     {
         if (isset($_SESSION['user'])) {
             if (isset($_GET['id'])) {
                 $id         = htmlspecialchars($_GET['id']);
-                $vehicule   = new Vehicle($id);
-                $myVehicule = $vehicule->getVehicleById();   // ✅
+                $vehicule   = new Vehicle((int)$id);
+                $myVehicule = $vehicule->getVehicleById();
 
                 if ($myVehicule) {
-                    $vehicule->deleteVehicle();              // ✅
+                    $vehicule->deleteVehicle();
                     $this->redirectToRoute('/vehicules', 302);
                 } else {
                     $this->redirectToRoute('/vehicules', 302);
